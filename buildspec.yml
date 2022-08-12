@@ -1,0 +1,18 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo "entering pre_build phase"
+  build:
+    commands:
+      - echo "entering build phase"
+      - mvn clean install
+      - echo "exiting build phase"
+  post_build:
+    commands:
+      - echo "entering post_build phase"
+      - mkdir deploy
+      - mv target/aws-elasticbeanstalk*.war ./deploy
+artifacts:
+  files:
+    - deploy/**/*
