@@ -11,8 +11,12 @@ phases:
   post_build:
     commands:
       - echo "entering post_build phase"
+      - pwd
+      - ls -ltr
       - mkdir deploy
+      - ls -ltr
       - mv target/aws-elasticbeanstalk*.war ./deploy
+      - ls -ltr deploy
 artifacts:
   files:
     - deploy/**/*
